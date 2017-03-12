@@ -1,9 +1,21 @@
 # Bootsy Changelog
 
-## master
-* Fix bug when image uploader are rendered with main app layout (#211)
+## 2.4.0
+
+* Full compatibility with Rails 5 (#244 thanks @dnswus).
+* jQuery 3.0 support (#259 - thanks @adeelejaz).
+* Update CarrierWave to 1.0 (#256 - thanks @adeelejaz).
+
+## 2.3.1
+
+* Bootsy now supports Turbolinks 5 and up.
+
+## 2.3.0
 
 * Bootsy no longer depends on Remotipart.
+* Fix bug where modal is rendered with the app layout (#211 - thanks @StGalant).
+* Removed install generator. Users now need to create the initializer and locale
+  files manually when needed.
 
 ## 2.2.2
 

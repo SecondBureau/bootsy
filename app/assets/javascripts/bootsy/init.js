@@ -1,6 +1,14 @@
 /* global Bootsy */
 window.Bootsy = window.Bootsy || {};
 
+window.bootsy_loaded = function () {
+  $.event.trigger({
+  	type: "Bootsy::Loaded",
+  	message: "Bootsy is loaded",
+  	time: new Date()
+  });
+}
+
 // Public: Intialize Bootsy editors in all visible `textarea`
 //         elements that has the `bootsy_text_area` class.
 Bootsy.init = function() {
@@ -19,6 +27,8 @@ Bootsy.init = function() {
       }
 
       area.init();
+      
+      area.editor.on ('load', bootsy_loaded);
 
       Bootsy.areas[areaIdx] = area;
     }
@@ -27,12 +37,10 @@ Bootsy.init = function() {
 
 /* Initialize Bootsy on document load */
 $(function() {
-  $(window).load(function() {
+  $(window).on('load', function() {
     Bootsy.init();
 
     /* Reload Bootsy on page load when using Turbolinks. */
-    if (window.Turbolinks) {
-      $(document).on('page:load', Bootsy.init);
-    }
+    document.addEventListener('turbolinks:load', Bootsy.init);
   });
 });

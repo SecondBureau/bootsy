@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Bootsy
   # Public: A model that groups all images related to a
   # Bootsy container (also called a resource).
@@ -10,7 +11,8 @@ module Bootsy
   # that do not point to resources older than the given time
   # limit.
   class ImageGallery < ActiveRecord::Base
-    belongs_to :bootsy_resource, polymorphic: true, autosave: false
+    belongs_to :bootsy_resource, polymorphic: true, autosave: false,
+                                 optional: true
     has_many :images, dependent: :destroy
 
     scope :destroy_orphans, lambda { |time_limit|

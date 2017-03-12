@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Use this setup block to configure all options available in Bootsy.
 Bootsy.setup do |config|
   # Default editor options
@@ -61,4 +62,9 @@ Bootsy.setup do |config|
   # Store directory (inside 'public') for storage = :file
   #   BE CAREFUL! Changing this may break previously uploaded file paths!
   # config.store_dir = 'uploads'
+  #
+  #
+  # Specify the controller to inherit from. Using ApplicationController
+  # allows you to perform authentication from within your app.
+  # config.base_controller = ActionController::Base
 end
